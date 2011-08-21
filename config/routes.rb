@@ -1,4 +1,4 @@
-DeviseRspecCucumber::Application.routes.draw do
+Rienscrafts::Application.routes.draw do
   #get \"users\/show\"
 
   root :to => "home#index"

@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-DeviseRspecCucumber::Application.load_tasks
+Rienscrafts::Application.load_tasks
