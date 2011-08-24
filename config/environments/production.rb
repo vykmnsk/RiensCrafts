@@ -58,4 +58,15 @@ Rienscrafts::Application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
 
+  ActionMailer::Base.smtp_settings = {
+    :enable_starttls_auto => true,  
+    :address            => 'smtp.gmail.com',
+    :port               => 587,
+    :tls                  => true,
+    :domain             => 'gmail.com',
+    :authentication     => :plain,
+    :user_name          => 'vykmnsk@gmail.com',
+    :password           => '!extrm'
+  }
+
 end
