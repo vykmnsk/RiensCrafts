@@ -65,8 +65,8 @@ Rienscrafts::Application.configure do
     :tls                  => true,
     :domain             => 'gmail.com',
     :authentication     => :plain,
-    :user_name          => 'vykmnsk@gmail.com',
-    :password           => '!extrm'
+    :user_name          => ENV['MAILER_USR'],
+    :password           => ENV['MAILER_PWD']
   }
 
 end
