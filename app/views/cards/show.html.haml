@@ -1,2 +1,5 @@
 %p
   Card: #{@card.name}
+
+  %div 
+    = image_tag @card.photo.url(:medium) 

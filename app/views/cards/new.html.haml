@@ -1,9 +1,12 @@
 %h3 New Card
-= form_for(@card) do |f|
-  -#=f.error_messages
+= form_for @card, :html => { :multipart => true } do |f|
+  -#= f.error_messages
   %fieldset
-    %li
-      =f.label :name
-    %li
-      =f.text_field :name
+    %div
+      = f.label :name
+      = f.text_field :name
+    %div
+      = f.label :photo
+      = f.file_field :photo
+    %div
     =f.submit 'Add'
