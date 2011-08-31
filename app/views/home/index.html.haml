@@ -1,3 +1,8 @@
-%h3 Users
-- @users.each do |user|
-  %p User: #{link_to user.name, user}
+%h3 Cards
+- if @cards
+  %li
+    - @cards.each do |card|
+      %p Card: #{link_to card.name, card}
+- else
+  %li
+    = link_to('New Card', new_card_path)	  

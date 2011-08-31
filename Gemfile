@@ -14,14 +14,20 @@ gem "cucumber-rails", ">= 1.0.2", :group => :test
 gem "capybara", ">= 1.0.0", :group => :test
 gem "database_cleaner", ">= 0.6.7", :group => :test
 gem "launchy", ">= 2.0.5", :group => :test
+gem "guard-rspec", :group => :test
 gem "devise", ">= 1.4.2"
 gem "frontend-helpers"
 gem "rails-footnotes", ">= 3.7", :group => :development
 gem "heroku"
 gem "thin"
-group :production do
-  gem 'pg'
-end
-group :development, :test do
-  gem 'sqlite3'
-end
+#gem "rmagick"
+gem "paperclip", "~> 2.3"
+gem "pg"
+gem "sqlite3", :group => :test
+# group :production do
+#   gem 'pg'
+# end
+# group :development, :test do
+#   gem 'sqlite3'
+# end
+

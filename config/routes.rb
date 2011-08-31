@@ -1,10 +1,13 @@
-Rienscrafts::Application.routes.draw do
+  Rienscrafts::Application.routes.draw do
   #get \"users\/show\"
 
   root :to => "home#index"
 
   devise_for :users
   resources :users, :only => :show
+  resources :cards
+  get '/cards/new'
+  post 'cards/create'
 
 
   # The priority is based upon order of creation:

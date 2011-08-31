@@ -1,0 +1,9 @@
+%h3 New Card
+= form_for(@card) do |f|
+  -#=f.error_messages
+  %fieldset
+    %li
+      =f.label :name
+    %li
+      =f.text_field :name
+    =f.submit 'Add'
