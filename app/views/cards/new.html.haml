@@ -1,12 +1,17 @@
+-# Errors
+- if @card.errors.any?
+	%ul 
+		- @card.errors.full_messages.each do |msg|
+			%li #{msg} 
+
+
 %h3 New Card
 = form_for @card, :html => { :multipart => true } do |f|
-  -#= f.error_messages
-  %fieldset
-    %div
-      = f.label :name
-      = f.text_field :name
-    %div
-      = f.label :photo
-      = f.file_field :photo
-    %div
-    =f.submit 'Add'
+	%div
+		= f.label :name
+		= f.text_field :name
+	%div
+		= f.label :photo
+		= f.file_field :photo
+	%div
+	=f.submit 'Add'

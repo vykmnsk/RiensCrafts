@@ -1,0 +1,9 @@
+-# Errors
+- if @item.errors.any?
+	%ul 
+		- @item.errors.full_messages.each do |msg|
+			%li #{msg} 
+
+
+%h3 New Item
+= render "form"

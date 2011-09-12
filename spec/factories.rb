@@ -6,3 +6,9 @@ Factory.define :user do |u|
   u.password 'please'
 end
 
+Factory.define :item do |i|
+  i.name 'Test Item'
+  i.descr 'Testing Item'
+  i.price 1.01
+end
+

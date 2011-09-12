@@ -5,7 +5,7 @@
 
   devise_for :users
   resources :users, :only => :show
-  resources :cards
+  resources :items
 
 
 

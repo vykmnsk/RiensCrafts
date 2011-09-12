@@ -1,0 +1,22 @@
+= form_for @item, :html => { :multipart => true } do |f|
+	%div
+		= f.label :name
+		= f.text_field :name
+	%div
+		= f.label :descr, 'Description'
+		= f.text_area :descr, :rows => 4
+	%div
+		= f.label :price
+		= f.text_field :price
+	%div
+
+	-# Photos
+	%hr
+		= f.fields_for :photos do |sf|
+			%div
+				= sf.label :img, 'Image'
+				= sf.file_field :img
+				/ - unless 
+				= sf.check_box :_destroy
+				= sf.label :_destroy, 'Delete'
+	%p=f.submit 'Submit'
