@@ -1,10 +1,10 @@
-%h3 Welcome to Riens Cards
-- if @items
-  %div 
-    Items:
-    - @items.each do |item|
-      %li 
-        = link_to item.name, item
-  %br/
-  %div
-    = link_to('New Item', new_item_path)	  
+#carousel_wrap
+	%ul#banners.jcarousel-skin-tango
+		%li
+			=image_tag("banner1.JPG", :width => "228px", :height => "228px")
+		%li
+			=image_tag("banner2.JPG", :width => "228px", :height => "228px")
+		%li
+			=image_tag("banner3.JPG", :width => "228px", :height => "228px")
+		%li
+			=image_tag("banner4.JPG", :width => "228px", :height => "228px")

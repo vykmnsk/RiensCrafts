@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>JQuery img</title>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>
+
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="jquery.jcarousel.min.js"></script>
+<link rel="stylesheet" type="text/css" href="skins/tango/skin.css" />
+
+<script>
+
+function mycarousel_initCallback(carousel)
+{
+    // Disable autoscrolling if the user clicks the prev or next button.
+    carousel.buttonNext.bind('click', function() {
+        carousel.startAuto(0);
+    });
+ 
+    carousel.buttonPrev.bind('click', function() {
+        carousel.startAuto(0);
+    });
+ 
+    // Pause autoscrolling if the user moves with the cursor over the clip.
+    carousel.clip.hover(function() {
+        carousel.stopAuto();
+    }, function() {
+        carousel.startAuto();
+    });
+};
+
+jQuery(document).ready(function() {
+    jQuery('#mycarousel').jcarousel({
+    	// http://sorgalla.com/jcarousel/
+        // auto: 2,
+        // wrap: 'last',
+        // initCallback: mycarousel_initCallback
+
+				wrap: 'circular', 	// Last image scrolls to the first one
+				scroll: 1, 			// Number of images to scroll
+				auto: 7 			// Interval between each animation, in seconds        
+     });
+});
+
+</script>
+
+</head>
+
+<body>
+
+<div id="wrap">
+
+<ul id="mycarousel" class="jcarousel-skin-tango">
+   <li><img src="img1.png" width="75" height="75" /></li>
+   <li><img src="img2.png" width="75" height="75"/></li>
+   <li><img src="img1.png" width="75" height="75" /></li>
+   <li><img src="img2.png" width="75" height="75"/></li>
+   <li><img src="img1.png" width="75" height="75" /></li>
+   <li><img src="img2.png" width="75" height="75"/></li>
+   <li><img src="img1.png" width="75" height="75" /></li>
+   <li><img src="img2.png" width="75" height="75"/></li>
+   <li><img src="img1.png" width="75" height="75" /></li>
+   <li><img src="img2.png" width="75" height="75"/></li>
+   <li><img src="img1.png" width="75" height="75" /></li>
+   <li><img src="img2.png" width="75" height="75"/></li>
+
+
+</ul>
+
+</div>
+
+
+Please be aware that withdrawals will be prorated against all investment options. However, if you wish to specify from which funds your withdrawal will be taken, you must do so in writing on the <a target="_blank" href="https://www.fascore.com/PDF/SouthCarolina/98955-02_distribution.pdf">Distribution/Direct Rollover Request Form</a> or in a signed letter. Specific funds cannot be identified through an online withdrawal request. For more information, contact KeyTalk<SUP>&reg;</SUP> at (877) 457-6263.
+
+</body>
+</html>  

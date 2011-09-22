@@ -1,10 +1,13 @@
-%h3 Items
-- if @items
-  %div 
-    Items:
-    - @items.each do |item|
-      %li 
-        = link_to item.name, item
-  %br/
-  %div
-    = link_to('New Item', new_item_path)	  
+#content
+	- if @items
+		%div 
+			Items:
+			- @items.each do |item|
+				- item.photos.each do |photo|
+					= link_to image_tag(photo.img.url(:medium), :title => item.name), photo.img.url
+		%br/
+		%div
+			= link_to('New Item', new_item_path)	
+
+
+			

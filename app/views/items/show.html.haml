@@ -1,11 +1,18 @@
-%p
-	Item: #{@item.name}
-%p
-	Description: #{@item.descr}
-%p
-	Price: #{@item.price}
+#sidebar
+	%ul
+		%li Birthday
+		%li Seasonal
 
-%p
-	- for photo in @item.photos
-		%li
-			= image_tag photo.img.url(:medium)
+#content
+	%h1
+		#{@item.name}
+	%p
+		Description: #{@item.descr}
+	%p
+		Price: #{@item.price}
+
+	%p
+		- for photo in @item.photos
+			%li
+				-# %a rel="gallery"
+				= link_to image_tag(photo.img.url(:medium)), photo.img.url(:medium)

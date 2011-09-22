@@ -1,0 +1,98 @@
+//$back_color: #29264D
+$back_color: #1C1828 
+$nav_color: #685BB5
+$main_color: #9E9EDE
+$text_color: #eedddd
+$border_color: #cbcbcb
+
+@mixin simple-border($color)
+	border: solid 1px $color
+	border-radius: 4px
+	-moz-border-radius: 4px
+	-webkit-border-radius: 4px
+	
+
+html, body, div, ul 
+	margin: 0
+	padding: 0
+
+body
+	color: $text_color
+	background: $back_color
+	font: normal 14px/20px Verdana, sans-serif
+	
+#wrapper
+	width: 860px
+	background: $main_color
+	margin: 0 auto
+	padding: 0 40px 30px 40px
+	@include simple-border($border_color)
+	-moz-box-shadow: 0px 0px 10px $border_color
+	-webkit-box-shadow: 0px 0px 10px $border_color
+
+header 
+	height: 100px
+	position: relative
+	padding: 0 12px 0 6px
+	h1
+		margin: 40px 0 15px 0
+		font-size: 30px
+
+#main
+	min-height: 560px
+	position: relative
+	vertical-align:top
+	#content
+		width: 620px
+		float: right
+		display: inline
+		padding-right: 20px
+		overflow: hidden	
+	#sideBar
+		background: $nav_color
+		width: 140px
+		float: left
+		display: inline
+		@include simple-border($border_color)
+		padding: 24px
+		min-height: inherit 
+		height: inherit
+
+footer
+	width: 885px
+	margin: 0 auto
+	padding: 0 24px 0 0px		
+
+h1
+	margin: 6px 0 10px 0
+	font-size: 20px
+	font-weight: bold
+	font-family: Arial
+	span
+		font-size: 50%
+		letter-spacing: -0.05em
+
+hr
+	border: none
+	height: 1px 
+	line-height: 1px
+	background: #E5E5E5
+	margin-bottom: 20px
+	padding: 0
+
+p
+	margin: 0
+	padding: 7px 0
+
+a
+	outline: none
+	img
+		@include simple-border($border_color)
+		padding: 3px
+		margin: 10px 20px 10px 0
+		vertical-align: top
+		.last
+			margin-right: 0	
+
+ul
+	list-style-type: none
