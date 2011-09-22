@@ -16,7 +16,7 @@ mycarousel_initCallback = (carousel) ->
 jQuery(document).ready ($) ->
 	$("#banners").jcarousel {
 		wrap: 'circular',
-		scroll: 1,
-		auto: 5
+		scroll: 2,
+		auto: 3
 	}
 

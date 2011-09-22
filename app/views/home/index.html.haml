@@ -1,10 +1,49 @@
 #carousel_wrap
-	%ul#banners.jcarousel-skin-tango
+	%ul#banners.jcarousel-skin-banners
 		%li
-			=image_tag("banner1.JPG", :width => "228px", :height => "228px")
+			=image_tag("banner1.JPG", :width => "190px", :height => "190px")
 		%li
-			=image_tag("banner2.JPG", :width => "228px", :height => "228px")
+			=image_tag("banner2.JPG", :width => "190px", :height => "190px")
 		%li
-			=image_tag("banner3.JPG", :width => "228px", :height => "228px")
+			=image_tag("banner3.JPG", :width => "190px", :height => "190px")
 		%li
-			=image_tag("banner4.JPG", :width => "228px", :height => "228px")
+			=image_tag("banner4.JPG", :width => "190px", :height => "190px")
+
+#menu_tree
+	%ul
+		%li.branch
+			%h3
+				Cards
+			%ul
+				%li 
+					%a{:href => '#'} Birthday
+				%li
+					%a{:href => '#'} Seasonal
+				%li
+					%a{:href => '#'} Baby
+				%li
+					%a{:href => '#'} For Him
+				%li
+					%a{:href => '#'} For Her
+		%li.branch
+			%h3
+				Toys
+			%ul
+				%li
+					%a{:href => '#'} Baby
+		%li.branch
+			%h3
+				Shirts
+			%ul
+				%li
+					%a{:href => '#'} For Her
+				%li
+					%a{:href => '#'} For Him
+		%li.branch
+			%h3
+				Coffee
+			%ul
+				%li
+					%a{:href => '#'} 50g
+				%li
+					%a{:href => '#'} 100g
