@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @items = Item.all
+    @groups = Group.all
   end
 end

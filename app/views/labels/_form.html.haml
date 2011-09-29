@@ -1,0 +1,17 @@
+= form_for @label do |f|
+	%div
+		Group
+		%ul
+			- @groups.each do |grp|
+				%li
+					/ = f.fields_for :group do |sf|
+					= f.radio_button("group_id", grp.id)
+					= f.label "group_id", grp.name
+	%div
+		= f.label :name
+		= f.text_field :name
+	%div
+		/ = f.check_box :_destroy
+		/ = f.label :_destroy, 'Delete'
+
+	%p=f.submit 'Submit'

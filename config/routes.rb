@@ -6,8 +6,7 @@
   devise_for :users
   resources :users, :only => :show
   resources :items
-
-
+  resources :labels
 
 
   # The priority is based upon order of creation:

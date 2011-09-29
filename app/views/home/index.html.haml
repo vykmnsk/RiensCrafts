@@ -47,3 +47,14 @@
 					%a{:href => '#'} 50g
 				%li
 					%a{:href => '#'} 100g
+
+#menu_tree2
+	%ul
+		- @groups.each do |grp|
+			%h3
+				= grp.name
+			%ul
+				- grp.labels.each do |lbl|
+					%li
+						%a{:href => '#'} 
+							=lbl.name
