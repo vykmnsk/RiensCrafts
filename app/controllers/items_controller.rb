@@ -5,7 +5,10 @@ class ItemsController < ApplicationController
 
 	def new
 		@item = Item.new
+		2.times { @item.attrs.build }
 		4.times { @item.photos.build }
+		@groups = Group.all
+		@attr_types = AttrType.all
 	end
 
 	def create
@@ -26,5 +29,11 @@ class ItemsController < ApplicationController
 	def show
     	@item = Item.find(params[:id])
 	end
+
+	def edit
+		@item = Item.new
+		@groups = Group.all
+	end
+
 
 end

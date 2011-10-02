@@ -1,4 +1,16 @@
 = form_for @item, :html => { :multipart => true } do |f|
+	
+	-# Groups
+	%div
+		Group
+		%ul
+			- @groups.each do |grp|
+				%li
+					= f.radio_button("group_id", grp.id)
+					= f.label "group_id", grp.name
+	%hr
+	-# Item fields
+
 	%div
 		= f.label :name
 		= f.text_field :name
@@ -10,13 +22,27 @@
 		= f.text_field :price
 	%div
 
-	-# Photos
 	%hr
-		= f.fields_for :photos do |sf|
-			%div
-				= sf.label :img, 'Image'
-				= sf.file_field :img
-				/ - unless 
-				= sf.check_box :_destroy
-				= sf.label :_destroy, 'Delete'
+	-# Attributes
+	%h3
+		Attributes
+	= f.fields_for :attrs do |sf|
+		%div
+			= sf.label "attr_type_id", "Type"
+			/= sf.range_field "attr_type_id", @attr_types
+			= sf.label :detail
+			= sf.text_field :detail
+
+	%hr
+	-# Photos
+	%h3
+		Photos
+	= f.fields_for :photos do |sf|
+		%div
+			= sf.label :img, 'Image'
+			= sf.file_field :img
+			/ - unless 
+			= sf.check_box :_destroy
+			= sf.label :_destroy, 'Delete'
+
 	%p=f.submit 'Submit'

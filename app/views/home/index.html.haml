@@ -9,52 +9,32 @@
 		%li
 			=image_tag("banner4.JPG", :width => "190px", :height => "190px")
 
+/ #menu_tree
+/ 	%ul
+/ 		%li.branch
+/ 			%h3
+/ 				Cards
+/ 			%ul
+/ 				%li 
+/ 					%a{:href => '#'} Birthday
+/ 				%li
+/ 					%a{:href => '#'} Seasonal
+/ 				%li
+/ 					%a{:href => '#'} Baby
+/ 				%li
+/ 					%a{:href => '#'} For Him
+/ 				%li
+/ 					%a{:href => '#'} For Her
+
+
 #menu_tree
 	%ul
-		%li.branch
-			%h3
-				Cards
-			%ul
-				%li 
-					%a{:href => '#'} Birthday
-				%li
-					%a{:href => '#'} Seasonal
-				%li
-					%a{:href => '#'} Baby
-				%li
-					%a{:href => '#'} For Him
-				%li
-					%a{:href => '#'} For Her
-		%li.branch
-			%h3
-				Toys
-			%ul
-				%li
-					%a{:href => '#'} Baby
-		%li.branch
-			%h3
-				Shirts
-			%ul
-				%li
-					%a{:href => '#'} For Her
-				%li
-					%a{:href => '#'} For Him
-		%li.branch
-			%h3
-				Coffee
-			%ul
-				%li
-					%a{:href => '#'} 50g
-				%li
-					%a{:href => '#'} 100g
-
-#menu_tree2
-	%ul
 		- @groups.each do |grp|
-			%h3
-				= grp.name
-			%ul
-				- grp.labels.each do |lbl|
-					%li
-						%a{:href => '#'} 
-							=lbl.name
+			%li.branch
+				%h3
+					= grp.name
+				%ul
+					- grp.labels.each do |lbl|
+						%li
+							%a{:href => '#'} 
+								=lbl.name

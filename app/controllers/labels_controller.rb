@@ -5,7 +5,6 @@ class LabelsController < ApplicationController
 
 	def new
 		@label = Label.new
-		# @label.group = Group.new
 		@groups = Group.all
 
 	end
