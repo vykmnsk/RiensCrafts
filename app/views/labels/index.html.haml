@@ -1,0 +1,15 @@
+%h1 
+	All Labels
+
+- if @labels
+	%ul
+		- @labels.each do |at|
+			%li
+				= at.group.name 
+				-
+				= link_to(at.name, edit_label_path(at))	
+- else
+	No Records...
+
+%p
+	= link_to('Add New', new_label_path)

@@ -1,0 +1,7 @@
+= form_for @attr_type do |f|
+	/= f.error_messages
+	%div
+		= f.label :name
+		= f.text_field :name
+
+	=f.submit 'Submit'

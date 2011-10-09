@@ -1,0 +1,12 @@
+-# Errors
+- if @item.errors.any?
+	%ul 
+		- @item.errors.full_messages.each do |msg|
+			%li #{msg} 
+
+
+%h3 Edit Item
+= render "form"
+%ul
+	= link_to 'Destroy', @item, :confirm => 'Are you sure?', :method => :delete
+	= link_to 'Back', items_path

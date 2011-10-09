@@ -8,6 +8,8 @@ end
 gem 'jquery-rails'
 gem "haml", ">= 3.1.2"
 gem "haml-rails", ">= 0.3.4", :group => :development
+gem "growl", :group => :development
+gem "rb-fsevent", :group => :development
 gem "rspec-rails", ">= 2.6.1", :group => [:development, :test]
 gem "factory_girl_rails", ">= 1.1.0", :group => :test
 gem "cucumber-rails", ">= 1.0.2", :group => :test

@@ -3,10 +3,13 @@
   
   root :to => "home#index"
 
+  match 'admin' => 'home#admin'
+
   devise_for :users
   resources :users, :only => :show
   resources :items
   resources :labels
+  resources :attr_types
 
 
   # The priority is based upon order of creation:

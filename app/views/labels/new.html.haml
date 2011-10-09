@@ -1,9 +1,7 @@
--# Errors
-- if @label.errors.any?
-	%ul 
-		- @label.errors.full_messages.each do |msg|
-			%li #{msg} 
+= render "errors"
 
+%h1 New Label
 
-%h3 New Label
 = render "form"
+
+= link_to 'Show All', labels_path

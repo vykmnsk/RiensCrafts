@@ -1,0 +1,15 @@
+%h1 
+	All Attribute Types
+
+- if @attr_types
+	%ul
+		- @attr_types.each do |at|
+			%li= link_to(at.name, edit_attr_type_path(at))	
+- else
+	No Records...
+
+%p
+	= link_to('Add New', new_attr_type_path)
+
+
+			

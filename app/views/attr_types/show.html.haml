@@ -1,0 +1,11 @@
+%h1
+	Attribute Type
+%p
+	Name: #{@attr_type.name}
+
+%p
+	= link_to 'Show All', attr_types_path
+	|
+	= link_to 'Add New', new_attr_type_path
+	|
+	= link_to 'Edit', edit_attr_type_path(@attr_type)
