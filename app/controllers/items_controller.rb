@@ -7,10 +7,20 @@ class ItemsController < ApplicationController
 		@item = Item.new
 		2.times { @item.attrs.build }
 		4.times { @item.photos.build }
-		@groups = Group.all
-		@attr_types = AttrType.all
+		@attr_types_map = AttrType.all.map {|at| [at.name, at.id]}
 	end
 
+	def show
+    	@item = Item.find(params[:id])
+	end
+
+	def edit
+		@item = Item.find(params[:id])
+		2.times { @item.attrs.build }
+		4.times { @item.photos.build }
+		@attr_types_map = AttrType.all.map {|at| [at.name, at.id]}
+	end
+	
 	def create
 		@item = Item.create(params[:item])
 
@@ -26,14 +36,33 @@ class ItemsController < ApplicationController
  
 	end
 
-	def show
+  	# PUT /items/1
+  	def update
     	@item = Item.find(params[:id])
-	end
 
-	def edit
-		@item = Item.new
-		@groups = Group.all
-	end
+    	respond_to do |fmt|
+      		if @item.update_attributes(params[:item])
+        		flash[:notice] = 'item updated.'
+        		fmt.html { redirect_to(@item) }
+      		else
+ 		    	flash[:error] = 'Problem updating item!'
+		   		fmt.html { render :action => "edit" }
+      		end
+    	end
+  	end
 
+	 # DELETE /items/1
+  	def destroy
+    	@item = Item.find(params[:id])
+
+    	respond_to do |fmt|
+    		if @item.destroy
+    			flash[:notice] = 'Item deleted.'
+		    else
+				flash[:error] = 'Problem deleting Item!'
+	      	end
+	      	fmt.html { redirect_to(items_url) }
+	    end
+    end	
 
 end

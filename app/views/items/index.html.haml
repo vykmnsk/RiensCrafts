@@ -1,17 +1,21 @@
-#content
-	- if @items
-		%div 
-			Items:
-			- @items.each do |item|
-				- if item.group
-					= item.group.name
-				- item.photos.each do |photo|
-					= link_to image_tag(photo.img.url(:medium), :title => item.name), photo.img.url
-				= link_to('Edit', edit_item_path(item))	
+%h1 
+	All Items
 
-		%br/
-		%div
-			= link_to('New Item', new_item_path)	
+- if @items
+	%ul
+		- @items.each do |item|
+			%li
+				- if item.group 
+					= item.group.name
+				- else
+					no group
+				&nbsp;
+				= link_to(item.name, edit_item_path(item))	
+- else
+	No Records...
+
+%p
+	= link_to('Add New', new_item_path)
 
 
 			

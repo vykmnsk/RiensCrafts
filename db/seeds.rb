@@ -5,9 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-#puts 'setting up DEFAULT USER LOGIN'
-#user = User.create! :name => 'First User', :email => 'vykmnsk@gmail.com', :password => 'letmein', :password_confirmation => 'letmein'
-#puts 'New user created: ' << user.name
+
+puts 'setting up DEFAULT USER LOGIN'
+user = User.create! :name => 'First User', :email => 'vykmnsk@gmail.com', :password => 'letmein', :password_confirmation => 'letmein'
+puts 'New user created: ' << user.name
 
 
 puts 'setting up GRUPS ...'
@@ -18,7 +19,7 @@ puts "New GROUP created: " << group.name
 group = Group.create! :name => 'Toys'
 puts "New GROUP created: " << group.name
 
-group = Group.create! :name => 'Shirts'
+group = Group.create! :name => 'Clothes'
 puts "New GROUP created: " << group.name
 
 group = Group.create! :name => 'Coffee'

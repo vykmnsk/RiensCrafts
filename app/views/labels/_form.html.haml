@@ -1,12 +1,12 @@
 = form_for @label do |f|
 	%div
-		Group
+		Group:
 		%ul
-			- @groups.each do |grp|
+			- Group.all.each do |grp|
 				%li
-					/ = f.fields_for :group do |sf|
-					= f.radio_button("group_id", grp.id)
-					= f.label "group_id", grp.name
+					= f.radio_button :group_id, grp.id
+					= f.label :group_id, grp.name, :value => grp.id
+
 	%div
 		= f.label :name
 		= f.text_field :name

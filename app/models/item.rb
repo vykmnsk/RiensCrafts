@@ -1,10 +1,10 @@
 class Item < ActiveRecord::Base
-	attr_accessible :name, :descr, :price, :photos_attributes
+	attr_accessible :name, :descr, :price, :group_id, :photos_attributes, :attrs_attributes
 
 	validates :name, :presence => true, :length => {:minimum => 4}
 
 	belongs_to :group
-	has_many :attrs
+	has_many :attrs, :dependent => :destroy
 	has_many :photos, :dependent => :destroy
 	has_and_belongs_to_many :labels
 

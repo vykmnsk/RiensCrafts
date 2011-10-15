@@ -2,15 +2,16 @@
 	
 	-# Groups
 	%div
-		Group
+		Group:
 		%ul
-			- @groups.each do |grp|
+			- Group.all.each do |grp|
 				%li
-					= f.radio_button("group_id", grp.id)
-					= f.label "group_id", grp.name
+					= f.radio_button :group_id, grp.id
+					= f.label :group_id, grp.name, :value => grp.id
+
+	
 	%hr
 	-# Item fields
-
 	%div
 		= f.label :name
 		= f.text_field :name
@@ -22,6 +23,7 @@
 		= f.text_field :price
 	%div
 
+
 	%hr
 	-# Attributes
 	%h3
@@ -29,9 +31,10 @@
 	= f.fields_for :attrs do |sf|
 		%div
 			= sf.label "attr_type_id", "Type"
-			/= sf.range_field "attr_type_id", @attr_types
+			= sf.select "attr_type_id", @attr_types_map
 			= sf.label :detail
 			= sf.text_field :detail
+
 
 	%hr
 	-# Photos
@@ -41,7 +44,6 @@
 		%div
 			= sf.label :img, 'Image'
 			= sf.file_field :img
-			/ - unless 
 			= sf.check_box :_destroy
 			= sf.label :_destroy, 'Delete'
 
