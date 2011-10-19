@@ -19,6 +19,9 @@ class ItemsController < ApplicationController
 		2.times { @item.attrs.build }
 		4.times { @item.photos.build }
 		@attr_types_map = AttrType.all.map {|at| [at.name, at.id]}
+		@group_labels = Label.find(:all, :conditions => ['group_id = ?', @item.group.id])
+		@item_label_ids = @item.labels.all.collect {|il| il.id}
+
 	end
 	
 	def create
@@ -39,6 +42,28 @@ class ItemsController < ApplicationController
   	# PUT /items/1
   	def update
     	@item = Item.find(params[:id])
+
+	    if params[:prev_label_ids]
+	    	prev_label_ids = params[:prev_label_ids].keys {|id| id.to_i}
+	    end    	
+    	if params[:curr_label_ids]
+	    	curr_label_ids = params[:curr_label_ids].keys {|id| id.to_i}
+	    end
+	    
+    	if prev_label_ids
+    		prev_label_ids.each do |id|
+    			unless curr_label_ids and curr_label_ids.include?(id)
+    				@item.labels.delete Label.find(id)
+    			end
+    		end
+    	end
+    	if curr_label_ids
+    		curr_label_ids.each do |id|
+    			unless prev_label_ids and prev_label_ids.include?(id)
+    				@item.labels << Label.find(id)
+    			end
+    		end
+    	end    	
 
     	respond_to do |fmt|
       		if @item.update_attributes(params[:item])

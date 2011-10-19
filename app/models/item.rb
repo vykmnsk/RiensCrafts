@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-	attr_accessible :name, :descr, :price, :group_id, :photos_attributes, :attrs_attributes
+	attr_accessible :name, :descr, :price, :group_id, :photos_attributes, :attrs_attributes, :labels_attributes
 
 	validates :name, :presence => true, :length => {:minimum => 4}
 
@@ -14,6 +14,10 @@ class Item < ActiveRecord::Base
 
 	accepts_nested_attributes_for :photos, 
 									:reject_if => lambda { |a| a[:img].blank? },
+									:allow_destroy => true
+
+	accepts_nested_attributes_for :labels, 
+									:reject_if => lambda { |a| a[:id].blank? },
 									:allow_destroy => true
 
 end

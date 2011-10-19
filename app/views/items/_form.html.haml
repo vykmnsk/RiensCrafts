@@ -1,17 +1,14 @@
 = form_for @item, :html => { :multipart => true } do |f|
 	
 	-# Groups
-	%div
-		Group:
-		%ul
-			- Group.all.each do |grp|
-				%li
-					= f.radio_button :group_id, grp.id
-					= f.label :group_id, grp.name, :value => grp.id
-
-	
 	%hr
-	-# Item fields
+	%p
+		Group &nbsp;
+		- Group.all.each do |grp|
+			= f.radio_button :group_id, grp.id
+			= f.label :group_id, grp.name, :value => grp.id
+			&nbsp;&nbsp;
+	
 	%div
 		= f.label :name
 		= f.text_field :name
@@ -21,7 +18,7 @@
 	%div
 		= f.label :price
 		= f.text_field :price
-	%div
+	%br
 
 
 	%hr
@@ -29,22 +26,36 @@
 	%h3
 		Attributes
 	= f.fields_for :attrs do |sf|
-		%div
+		%p
 			= sf.label "attr_type_id", "Type"
 			= sf.select "attr_type_id", @attr_types_map
 			= sf.label :detail
 			= sf.text_field :detail
 
-
+	%br
 	%hr
 	-# Photos
 	%h3
 		Photos
 	= f.fields_for :photos do |sf|
-		%div
+		%p
 			= sf.label :img, 'Image'
 			= sf.file_field :img
 			= sf.check_box :_destroy
 			= sf.label :_destroy, 'Delete'
 
+	%hr
+	%h3
+		Labels
+	%p
+		- @group_labels.each_with_index do |gl, i|
+			- checkIt = @item_label_ids.include?(gl.id)
+			=check_box_tag "curr_label_ids[#{gl.id}]", true, checkIt 
+			=label_tag "curr_label_ids[#{gl.id}]", gl.name
+			&nbsp;&nbsp;
+
+		- @item_label_ids.each do |id|
+			=hidden_field_tag "prev_label_ids[#{id}]", id
+
+	%hr
 	%p=f.submit 'Submit'

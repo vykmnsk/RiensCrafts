@@ -1,18 +1,32 @@
-#sidebar
-	%ul
-		%li Birthday
-		%li Seasonal
+%h1
+	Item
+%p
+	Group: #{@item.group.name}
+%p
+	Name: #{@item.name}
 
-#content
-	%h1
-		#{@item.name}
-	%p
-		Description: #{@item.descr}
-	%p
-		Price: #{@item.price}
+%p
+	Description: #{@item.descr}
+%p
+	Price: #{@item.price}
 
-	%p
-		- for photo in @item.photos
-			%li
-				-# %a rel="gallery"
-				= link_to image_tag(photo.img.url(:medium)), photo.img.url(:medium)
+%p
+	Photos:
+	%br
+	- for photo in @item.photos
+		= link_to image_tag(photo.img.url(:medium)), photo.img.url(:original)
+
+%p
+	Labels:
+	%br
+	- for label in @item.labels
+		= label.name
+		&nbsp;
+
+%p
+	= link_to 'Show All', items_path
+	|
+	= link_to 'Add New', new_item_path
+	|
+	= link_to 'Edit', edit_item_path(@item)
+

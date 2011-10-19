@@ -1,18 +1,26 @@
 %h1 
 	All Items
 
-- if @items
-	%ul
+%table
+	- if @items
 		- @items.each do |item|
-			%li
-				- if item.group 
-					= item.group.name
-				- else
-					no group
-				&nbsp;
-				= link_to(item.name, edit_item_path(item))	
-- else
-	No Records...
+			%tr
+				%td
+					- if item.group 
+						= item.group.name
+					- else
+						*none*
+				%td
+					- if item.photos[0]
+						= link_to image_tag(item.photos[0].img.url(:thumb)), item
+					- else
+						&nbsp;
+				%td
+					= link_to(item.name, edit_item_path(item))	
+	- else
+		%tr
+			%td
+				No Records...
 
 %p
 	= link_to('Add New', new_item_path)
