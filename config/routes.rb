@@ -7,9 +7,12 @@
 
   devise_for :users
   resources :users, :only => :show
-  resources :items
-  resources :labels
-  resources :attr_types
+  
+  resources :items, :labels, :attr_types
+
+  # namespace :admin do
+  #   resources :items, :labels, :attr_types
+  # end
 
 
   # The priority is based upon order of creation:

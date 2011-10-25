@@ -5,9 +5,10 @@ class ItemsController < ApplicationController
 
 	def new
 		@item = Item.new
+		@group_labels = Label.all		
 		2.times { @item.attrs.build }
-		4.times { @item.photos.build }
 		@attr_types_map = AttrType.all.map {|at| [at.name, at.id]}
+		4.times { @item.photos.build }
 	end
 
 	def show
@@ -16,11 +17,11 @@ class ItemsController < ApplicationController
 
 	def edit
 		@item = Item.find(params[:id])
-		2.times { @item.attrs.build }
-		4.times { @item.photos.build }
-		@attr_types_map = AttrType.all.map {|at| [at.name, at.id]}
 		@group_labels = Label.find(:all, :conditions => ['group_id = ?', @item.group.id])
 		@item_label_ids = @item.labels.all.collect {|il| il.id}
+		2.times { @item.attrs.build }
+		@attr_types_map = AttrType.all.map {|at| [at.name, at.id]}
+		4.times { @item.photos.build }
 
 	end
 	
