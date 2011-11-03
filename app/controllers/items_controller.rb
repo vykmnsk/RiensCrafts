@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+	respond_to :html, :js
+
 	def index
 	    @items = Item.all
 	end
@@ -90,5 +92,33 @@ class ItemsController < ApplicationController
 	      	fmt.html { redirect_to(items_url) }
 	    end
     end	
+
+    def refresh_group_labels
+			@group_labels = Label.find(:all, :conditions => ['group_id = ?', params[:group_id]])
+    	# @item = Item.find(params[:item_id])
+			# @item_label_ids = @item.labels.all.collect {|il| il.id}
+			# render :partial => 'group_labels'
+
+    	# flash[:notice] = "Got list of goups" if @group_labels
+    	# respond_with( render(:partial => 'group_labels'), :layout => !request.xhr? )
+
+			# respond_with do |wants|
+	  		# wants.js {render :layout => false}
+
+			#   wants.html do
+			#     if request.xhr?
+			#       render :partial => "group_labels"
+			#     else
+			#       render
+			#     end
+			#   end
+			# end
+
+    	respond_to do |fmt|
+    		fmt.html {render :partial => "group_labels"}
+	  		# fmt.js {render :layout => false}
+			end
+
+    end
 
 end

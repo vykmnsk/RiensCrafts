@@ -220,7 +220,7 @@ DEPENDENCIES
   haml (>= 3.1.2)
   haml-rails (>= 0.3.4)
   heroku
-  jquery-rails
+  jquery-rails (>= 1.0.12)
   launchy (>= 2.0.5)
   paperclip (~> 2.3)
   pg

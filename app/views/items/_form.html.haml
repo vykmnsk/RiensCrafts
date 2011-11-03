@@ -1,3 +1,4 @@
+
 = form_for @item, :html => { :multipart => true } do |f|
 	
 	-# Groups
@@ -9,20 +10,15 @@
 			= f.radio_button :group_id, grp.id
 			= f.label :group_id, grp.name, :value => grp.id
 			&nbsp;&nbsp;
+		= link_to 'refresh labels', refresh_group_labels_items_path(:group_id => ""), :remote => true, :id => 'refresh-labels-link'
+	
+	#ajaxmsg	
 
 	%hr
 	%h3
 		Labels
-	%p
-		- @group_labels.each do |gl|
-			- checkIt = @item_label_ids.include?(gl.id) if @item_label_ids
-			=check_box_tag "curr_label_ids[#{gl.id}]", true, checkIt 
-			=label_tag "curr_label_ids[#{gl.id}]", gl.name
-			&nbsp;&nbsp;
-
-		- if @item_label_ids
-			- @item_label_ids.each do |id|
-				=hidden_field_tag "prev_label_ids[#{id}]", id
+	%p#group-labels
+	/= render 'group_labels'
 
 	%hr
 	%h3

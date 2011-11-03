@@ -8,7 +8,17 @@
   devise_for :users
   resources :users, :only => :show
   
-  resources :items, :labels, :attr_types
+  resources :labels, :attr_types
+
+  # match 'items/refresh_group_labels' => 'items#refresh_group_labels'
+
+  # resources :items
+
+  resources :items do
+    collection do
+      get 'refresh_group_labels'
+    end
+  end
 
   # namespace :admin do
   #   resources :items, :labels, :attr_types

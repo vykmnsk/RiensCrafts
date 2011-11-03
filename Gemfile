@@ -5,7 +5,7 @@ group :assets do
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
 end
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 1.0.12'
 gem "haml", ">= 3.1.2"
 gem "haml-rails", ">= 0.3.4", :group => :development
 gem "growl", :group => :development
@@ -32,4 +32,3 @@ gem "sqlite3", :group => :test
 # group :development, :test do
 #   gem 'sqlite3'
 # end
-
