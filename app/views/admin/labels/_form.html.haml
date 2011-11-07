@@ -1,4 +1,4 @@
-= form_for @label do |f|
+= form_for [:admin, @label] do |f|
 	%div
 		Group:
 		%ul
@@ -10,8 +10,5 @@
 	%div
 		= f.label :name
 		= f.text_field :name
-	%div
-		/ = f.check_box :_destroy
-		/ = f.label :_destroy, 'Delete'
 
 	%p=f.submit 'Submit'

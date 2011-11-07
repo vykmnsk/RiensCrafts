@@ -1,0 +1,13 @@
+%h1
+	Label
+%p
+	Group: #{@label.group.name}
+%p
+	Name: #{@label.name}
+
+%p
+	= link_to 'Show All', admin_labels_path
+	|
+	= link_to 'Add New', new_admin_label_path
+	|
+	= link_to 'Edit', edit_admin_label_path(@label)

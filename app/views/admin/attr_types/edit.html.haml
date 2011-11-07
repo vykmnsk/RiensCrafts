@@ -1,0 +1,7 @@
+%h1 Edit Attribute Type
+= render "form"
+
+%p
+	= link_to 'Show All', admin_attr_types_path
+	|
+	= link_to 'Delete', [:admin, @attr_type], :confirm => 'Delete it?', :method => :delete

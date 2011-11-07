@@ -1,0 +1,10 @@
+= render "errors"
+
+%h1 Edit Label
+
+= render "form"
+
+%p
+	= link_to 'Show All', admin_labels_path
+	|
+	= link_to 'Delete', [:admin, @label], :confirm => 'Delete it?', :method => :delete

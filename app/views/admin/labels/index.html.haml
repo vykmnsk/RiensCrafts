@@ -7,9 +7,9 @@
 			%li
 				= at.group.name 
 				-
-				= link_to(at.name, edit_label_path(at))	
+				= link_to(at.name, edit_admin_label_path(at))	
 - else
 	No Records...
 
 %p
-	= link_to('Add New', new_label_path)
+	= link_to('Add New', new_admin_label_path)

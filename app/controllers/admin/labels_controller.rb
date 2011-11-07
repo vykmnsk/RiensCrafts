@@ -1,4 +1,4 @@
-class LabelsController < ApplicationController
+class Admin::LabelsController < ApplicationController
 	def index
 	    @labels = Label.all
 	end
@@ -23,7 +23,7 @@ class LabelsController < ApplicationController
 	    respond_to do |fmt|
 			if @label.save
 			   	flash[:notice] = 'Label created.'
-		        fmt.html { redirect_to(@label) }
+		        fmt.html { redirect_to([:admin, @label]) }
 		    else 
 		    	flash[:error] = 'Problem updating label!'
 		    	fmt.html { render :action => "new" }
@@ -38,7 +38,7 @@ class LabelsController < ApplicationController
     	respond_to do |fmt|
       		if @label.update_attributes(params[:label])
         		flash[:notice] = 'Label updated.'
-        		fmt.html { redirect_to(@label) }
+        		fmt.html { redirect_to([:admin, @label]) }
       		else
  		    	flash[:error] = 'Problem updating Label!'
 		   		fmt.html { render :action => "edit" }
@@ -56,7 +56,7 @@ class LabelsController < ApplicationController
 		    else
 				flash[:error] = 'Problem deleting Label!'
 	      	end
-	      	fmt.html { redirect_to(labels_url) }
+	      	fmt.html { redirect_to(admin_labels_url) }
 	    end
     end	
 

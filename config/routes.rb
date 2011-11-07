@@ -3,21 +3,24 @@
   
   root :to => "home#index"
 
-  match 'admin' => 'home#admin'
+  match '/admin/menu' => 'admin/menu#index'
 
   devise_for :users
+  
   resources :users, :only => :show
   
-  resources :labels, :attr_types
+  namespace :admin do
+    # Directs /admin/products/* to Admin::ProductsController
+    # (app/controllers/admin/products_controller.rb)
 
-  # match 'items/refresh_group_labels' => 'items#refresh_group_labels'
+    resources :home, :labels, :attr_types
 
-  # resources :items
-
-  resources :items do
-    collection do
-      get 'refresh_group_labels'
+    resources :items do
+      collection do
+        get 'refresh_group_labels'
+      end
     end
+
   end
 
   # namespace :admin do

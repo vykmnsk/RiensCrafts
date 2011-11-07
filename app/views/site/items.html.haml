@@ -1,0 +1,22 @@
+#sidebar
+	%ul
+		%li Birthday
+		%li Seasonal
+
+#content
+	- if @items
+		%div 
+			Items:
+			- @items.each do |item|
+				- if item.group
+					= item.group.name
+				- item.photos.each do |photo|
+					= link_to image_tag(photo.img.url(:medium), :title => item.name), photo.img.url
+				= link_to('Edit', edit_item_path(item))	
+
+		%br/
+		%div
+			= link_to('New Item', new_item_path)	
+
+
+			

@@ -1,4 +1,4 @@
-class AttrTypesController < ApplicationController
+class Admin::AttrTypesController < ApplicationController
 	def index
 	    @attr_types = AttrType.all
 	end
@@ -14,7 +14,7 @@ class AttrTypesController < ApplicationController
 	    respond_to do |fmt|
 			if @attr_type.save
 			   	flash[:notice] = 'New Attribute Type created.'
-		        fmt.html { redirect_to(@attr_type) }
+		        fmt.html { redirect_to([:admin, @attr_type]) }
 		    else 
 		    	flash[:error] = 'Problem creating Attribute Type!'
 		    	fmt.html { render :action => "new" }
@@ -29,7 +29,7 @@ class AttrTypesController < ApplicationController
     	respond_to do |fmt|
       		if @attr_type.update_attributes(params[:attr_type])
         		flash[:notice] = 'Attribute Type updated.'
-        		fmt.html { redirect_to(@attr_type) }
+        		fmt.html { redirect_to([:admin, @attr_type]) }
       		else
  		    	flash[:error] = 'Problem updating Attribute Type!'
 		   		fmt.html { render :action => "edit" }
@@ -54,7 +54,7 @@ class AttrTypesController < ApplicationController
 		    else
 				flash[:error] = 'Problem deleting Attribute Type!'
 	      	end
-	      	fmt.html { redirect_to(attr_types_url) }
+	      	fmt.html { redirect_to(admin_attr_types_url) }
 	    end
     end
 

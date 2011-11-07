@@ -1,4 +1,4 @@
-class ItemsController < ApplicationController
+class Admin::ItemsController < ApplicationController
 	respond_to :html, :js
 
 	def index
