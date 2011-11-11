@@ -1,4 +1,6 @@
 class Admin::ItemsController < ApplicationController
+	before_filter :authenticate_user!
+
 	respond_to :html, :js
 
 	def index
@@ -26,7 +28,7 @@ class Admin::ItemsController < ApplicationController
 		4.times { @item.photos.build }
 
 	end
-	
+
     def refresh_group_labels
 		@group_labels = Label.find(:all, :conditions => ['group_id = ?', params[:selected_group_id]])
     	item_id = params[:item_id]

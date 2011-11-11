@@ -1,4 +1,6 @@
 class Admin::AttrTypesController < ApplicationController
+	before_filter :authenticate_user!
+	
 	def index
 	    @attr_types = AttrType.all
 	end
