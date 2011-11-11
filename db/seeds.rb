@@ -16,6 +16,9 @@ puts 'setting up GRUPS ...'
 group = Group.create! :name => 'Cards'
 puts "New GROUP created: " << group.name
 
+label = Label.create! :name => 'Seasonal', :group => group
+label = Label.create! :name => 'Birthday', :group => group
+
 group = Group.create! :name => 'Toys'
 puts "New GROUP created: " << group.name
 
@@ -24,3 +27,12 @@ puts "New GROUP created: " << group.name
 
 group = Group.create! :name => 'Coffee'
 puts "New GROUP created: " << group.name
+
+
+puts 'setting up Attribute Types ...'
+
+attrType = AttrType.create! :name => 'Color'
+puts "New AttrType created: " << attrType.name
+
+attrType = AttrType.create! :name => 'Size'
+puts "New AttrType created: " << attrType.name

@@ -15,7 +15,9 @@ jQuery(document).ready ($) ->
 
 	#Group Radio
 	$("input:radio[name='item[group_id]']").click ()->
-		complete_url = $('#refresh-labels-link').attr('href') + this.value
-		$('#refresh-labels-link').attr('href', complete_url).trigger('click')
+		url_base = $('#refresh-labels-link').attr('href') 
+		url_2click = url_base + this.value
+		$('#refresh-labels-link').attr('href', url_2click).trigger('click')
+		$('#refresh-labels-link').attr('href', url_base)
 
 	

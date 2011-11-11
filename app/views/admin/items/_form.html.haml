@@ -1,5 +1,4 @@
-
-= form_for @item, :html => { :multipart => true } do |f|
+= form_for [:admin, @item], :html => { :multipart => true } do |f|
 	
 	-# Groups
 	%hr
@@ -10,7 +9,7 @@
 			= f.radio_button :group_id, grp.id
 			= f.label :group_id, grp.name, :value => grp.id
 			&nbsp;&nbsp;
-		= link_to 'refresh labels', refresh_group_labels_items_path(:group_id => ""), :remote => true, :id => 'refresh-labels-link'
+		= link_to '', refresh_group_labels_admin_items_path(:item_id => @item.id, :selected_group_id => ""), :remote => true, :id => 'refresh-labels-link'
 	
 	#ajaxmsg	
 
@@ -18,7 +17,8 @@
 	%h3
 		Labels
 	%p#group-labels
-	/= render 'group_labels'
+		- unless @item_label_ids.blank?
+			= render 'group_labels'
 
 	%hr
 	%h3

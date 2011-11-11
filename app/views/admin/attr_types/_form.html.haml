@@ -1,7 +1,7 @@
 = form_for [:admin, @attr_type] do |f|
 	/= f.error_messages
-	%div
+	%p
 		= f.label :name
 		= f.text_field :name
-
+	%br
 	=f.submit 'Submit'

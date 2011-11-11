@@ -24,9 +24,10 @@
 		&nbsp;
 
 %p
-	= link_to 'Show All', items_path
+	= link_to 'Show All', admin_items_path
 	|
-	= link_to 'Add New', new_item_path
+	= link_to 'Add New', new_admin_item_path
 	|
-	= link_to 'Edit', edit_item_path(@item)
-
+	= link_to 'Edit', edit_admin_item_path(@item)
+	|
+	= link_to 'Delete', [:admin, @item], :confirm => 'Delete it?', :method => :delete

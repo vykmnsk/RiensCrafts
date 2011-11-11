@@ -9,3 +9,6 @@
 	= link_to 'Add New', new_admin_attr_type_path
 	|
 	= link_to 'Edit', edit_admin_attr_type_path(@attr_type)
+	|
+	= link_to 'Delete', [:admin, @attr_type], :confirm => 'Delete it?', :method => :delete
+

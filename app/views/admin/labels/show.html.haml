@@ -11,3 +11,5 @@
 	= link_to 'Add New', new_admin_label_path
 	|
 	= link_to 'Edit', edit_admin_label_path(@label)
+	|
+	= link_to 'Delete', [:admin, @label], :confirm => 'Delete it?', :method => :delete

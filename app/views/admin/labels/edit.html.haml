@@ -5,6 +5,6 @@
 = render "form"
 
 %p
-	= link_to 'Show All', admin_labels_path
+	= link_to '<< Cancel', admin_label_path( @label )	
 	|
-	= link_to 'Delete', [:admin, @label], :confirm => 'Delete it?', :method => :delete
+	= link_to 'Show All', admin_labels_path
