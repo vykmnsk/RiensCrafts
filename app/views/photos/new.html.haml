@@ -1,7 +1,0 @@
-%h3 Add Photo
-= form_for @photo, :html => { :multipart => true } do |f|
-	%div
-		= f.label :img
-		= f.file_field :img
-	%div
-	=f.submit 'Add'

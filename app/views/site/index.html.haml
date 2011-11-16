@@ -19,5 +19,4 @@
 				%ul
 					- grp.labels.each do |lbl|
 						%li
-							%a{:href => '#'} 
-								=lbl.name
+							= link_to(lbl.name, 'labelitems')

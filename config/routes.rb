@@ -1,9 +1,12 @@
   Rienscrafts::Application.routes.draw do
   #get \"users\/show\"
   
-  root :to => "home#index"
+  root :to => "site#index"
 
   match '/admin/menu' => 'admin/menu#index'
+  match 'labelitems' => 'site#label_items'  
+  match 'item' => 'site#item'
+
 
   devise_for :users
   
@@ -13,7 +16,7 @@
     # Directs /admin/products/* to Admin::ProductsController
     # (app/controllers/admin/products_controller.rb)
 
-    resources :home, :labels, :attr_types
+    resources :home, :labels, :attr_types, :users
 
     resources :items do
       collection do

@@ -8,6 +8,7 @@
     = stylesheet_link_tag :application
     = stylesheet_link_tag params[:controller]
     = javascript_include_tag :application
+    = javascript_include_tag params[:controller]
     = csrf_meta_tags
 
   %body{:class => params[:controller]}
@@ -18,7 +19,7 @@
             = link_to 'Home', root_path 
             = render 'devise/menu/registration_items'
             = render 'devise/menu/login_items'
-            = render 'home/menu'
+            = render 'site/menu'
         
         %h1 Riens Crafts
 

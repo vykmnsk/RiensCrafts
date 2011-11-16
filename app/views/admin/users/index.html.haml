@@ -1,0 +1,15 @@
+%h1 All Users
+
+%table
+	- if @users
+		- @users.each do |user|
+			%tr
+				%td
+					= link_to user.name, admin_user_path(user)	
+	- else
+		%tr
+			%td
+				No Records...
+
+%p
+	= link_to('Add New', new_user_registration_path)
