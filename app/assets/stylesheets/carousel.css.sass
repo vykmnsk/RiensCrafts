@@ -1,0 +1,93 @@
+/* CAROUSEL */
+.jcarousel-skin-banners
+    .jcarousel-container
+        -moz-border-radius: 4px
+        -webkit-border-radius: 4px
+        border-radius: 4px
+        background: #eedddd
+        border: 1px solid #cbcbcb
+
+    .jcarousel-direction-rtl
+        direction: rtl
+
+    .jcarousel-container-horizontal
+        width: 780px
+        padding: 4px 36px
+
+    .jcarousel-clip
+        overflow: hidden
+
+    .jcarousel-clip-horizontal
+        width:  780px
+        height: 190px
+
+    .jcarousel-item
+        width: 190px
+        height: 190px
+
+    .jcarousel-item-horizontal
+        margin-left: 0
+        margin-right: 6px
+
+    .jcarousel-direction-rtl.jcarousel-item-horizontal
+        margin-left: 6px
+        margin-right: 0
+
+    .jcarousel-item-placeholder
+        background: #fff
+        color: #000
+
+    .jcarousel-next-horizontal
+        position: absolute
+        top: 43px
+        right: 5px
+        width: 32px
+        height: 32px
+        cursor: pointer
+        background: transparent url(next-horizontal.png) no-repeat 0 0
+
+    .jcarousel-direction-rtl.jcarousel-next-horizontal
+        left: 5px
+        right: auto
+        background-image: url(prev-horizontal.png)
+
+    .jcarousel-next-horizontal:hover, .jcarousel-next-horizontal:focus
+        background-position: -32px 0
+
+    .jcarousel-next-horizontal:active
+        background-position: -64px 0
+
+    .jcarousel-next-disabled-horizontal,
+    .jcarousel-next-disabled-horizontal:hover,
+    .jcarousel-next-disabled-horizontal:focus,
+    .jcarousel-next-disabled-horizontal:active
+        cursor: default
+        background-position: -96px 0
+
+    .jcarousel-prev-horizontal
+        position: absolute
+        top: 43px
+        left: 5px
+        width: 32px
+        height: 32px
+        cursor: pointer
+        background: transparent url(prev-horizontal.png) no-repeat 0 0
+
+    .jcarousel-direction-rtl .jcarousel-prev-horizontal
+        left: auto
+        right: 5px
+        background-image: url(next-horizontal.png)
+
+    .jcarousel-prev-horizontal:hover, 
+    .jcarousel-prev-horizontal:focus
+        background-position: -32px 0
+
+    .jcarousel-prev-horizontal:active
+        background-position: -64px 0
+
+    .jcarousel-prev-disabled-horizontal,
+    .jcarousel-prev-disabled-horizontal:hover,
+    .jcarousel-prev-disabled-horizontal:focus,
+    .jcarousel-prev-disabled-horizontal:active
+        cursor: default
+        background-position: -96px 0

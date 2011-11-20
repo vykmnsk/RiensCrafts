@@ -5,7 +5,11 @@ class SiteController < ApplicationController
   end
 
   def label_items
-    @items = Item.all
+    label = Label.find(params[:label_id])
+  	@groups = Group.all
+    @group_labels = Label.find :all, :conditions => ["group_id=?", label.group.id]
+    @label_items = label.items
+    # @items = Item.find :all, :conditions => ["group_id=?", params[:group_id]]
   end
 
   def item

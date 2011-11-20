@@ -30,4 +30,5 @@
         = yield
 
       %footer
-        %p= debug(params) if Rails.env.development?
+        %p
+          = debug(params) if Rails.env.development?

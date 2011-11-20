@@ -1,13 +1,14 @@
 #sidebar
-	%ul
-		%li Birthday
-		%li Seasonal
+	- if @group_labels
+		%ul
+			- @group_labels.each do |lbl|
+				%li=lbl.name
 
 #content
-	- if @items
+	- if @label_items
 		%div 
 			Items:
-			- @items.each do |item|
+			- @label_items.each do |item|
 				- if item.group
 					= item.group.name
 				- item.photos.each do |photo|

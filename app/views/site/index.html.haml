@@ -19,4 +19,4 @@
 				%ul
 					- grp.labels.each do |lbl|
 						%li
-							= link_to(lbl.name, 'labelitems')
+							= link_to lbl.name, labelitems_path(:label_id => lbl.id) 
