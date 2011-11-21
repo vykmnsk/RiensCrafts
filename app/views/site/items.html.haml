@@ -1,0 +1,19 @@
+= render "sidebar"
+
+#content
+	#menu_tree
+		%ul
+			- @groups.each do |grp|
+				%li.branch
+					%h3
+						- if @group == grp
+							= grp.name
+						- else
+							= link_to grp.name, groupitems_path(:group_id => grp.id) 
+
+	- if @items
+		%div 
+			- @items.each do |item|
+				- photo = item.photos[0]
+				= link_to image_tag(photo.img.url(:medium), :title => item.name), itemshow_path(:id => item.id)
+			

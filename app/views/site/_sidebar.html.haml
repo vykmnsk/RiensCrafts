@@ -1,0 +1,6 @@
+#sidebar
+	- if @group_labels
+		%ul
+			- @group_labels.each do |lbl|
+				%li
+					= link_to lbl.name, labelitems_path(:label_id => lbl.id) 

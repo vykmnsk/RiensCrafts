@@ -5,7 +5,8 @@
 
   match '/admin/menu' => 'admin/menu#index'
   match 'labelitems' => 'site#label_items'  
-  match 'item' => 'site#item'
+  match 'groupitems' => 'site#group_items'  
+  match 'itemshow' => 'site#item_show'  
 
 
   devise_for :users

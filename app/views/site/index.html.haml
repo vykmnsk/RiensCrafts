@@ -15,7 +15,8 @@
 		- @groups.each do |grp|
 			%li.branch
 				%h3
-					= grp.name
+					= link_to grp.name, groupitems_path(:group_id => grp.id) 
+
 				%ul
 					- grp.labels.each do |lbl|
 						%li

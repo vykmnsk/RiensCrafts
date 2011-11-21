@@ -1,0 +1,15 @@
+= render "sidebar"
+
+#content
+	= render 'menu_tree'
+
+	%p
+		= @item.name
+	%p
+		= @item.descr
+	%p
+		Price: $#{@item.price}
+
+	%div 
+		- @item.photos.each do |photo|
+			= link_to image_tag(photo.img.url(:medium), :title => @item.name), photo.img.url, :rel => 'gallery'
