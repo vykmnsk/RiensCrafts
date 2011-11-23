@@ -16,12 +16,15 @@
       %header
         %nav
           %ul
-            = link_to 'Home', root_path 
-            = render 'devise/menu/registration_items'
+            / = render 'devise/menu/registration_items'
             = render 'devise/menu/login_items'
-            = render 'site/menu'
+            / = render 'site/menu'
         
-        %h1 Riens Crafts
+        %div
+          / = link_to 'RiensCrafts', root_path 
+          = image_tag("logo.jpg", :width => "850px", :height => "200px")
+
+
 
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)

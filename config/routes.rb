@@ -2,8 +2,9 @@
   #get \"users\/show\"
   
   root :to => "site#index"
-
-  match '/admin/menu' => 'admin/menu#index'
+  # match '/users/sign_in' => "site#index"
+  # match '/admin/vhod' => redirect('/users/sign_in')
+  match '/admin/vhod' => 'admin/menu#index'
   match 'labelitems' => 'site#label_items'  
   match 'groupitems' => 'site#group_items'  
   match 'itemshow' => 'site#item_show'  
