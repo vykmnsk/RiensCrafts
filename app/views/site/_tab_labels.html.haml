@@ -1,0 +1,11 @@
+#tab-side-wrap
+	.tab-conn-horiz
+
+	#tab-side.tab-active
+		- if @group_labels
+			%ul
+				- @group_labels.each do |lbl|
+					%li
+						= link_to lbl.name, labelitems_path(:label_id => lbl.id) 
+						- if (lbl === @label)
+							= image_tag('button.png', :height => '20px', :width => '20px')

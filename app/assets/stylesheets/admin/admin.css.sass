@@ -31,7 +31,6 @@ body
 	z-index: 2
 
 header 
-	height: 200px
 	padding: 0 12px 0 6px
 	h1
 		position: relative
@@ -41,15 +40,17 @@ header
 		display: inline
 	nav
 		vertical-align: top
-		display: block
-		ul
-			margin: 0 0 2em
-			padding: 0
-			float: right
-			li
-				display: inline
-	a
-		background-url: 'logo2.jpg'
+		float: right
+
+	div
+		position: relative
+		z-index: 10
+		a
+			margin-left: 0px
+			margin-top: 0px
+			border: 2px none
+			display: inline
+			float: left
 
 #main
 	min-height: 560px
@@ -139,10 +140,12 @@ ul
 
 #flash_alert
 	@include flashbox
+	color: grey
 	background-color: #CFC
-	@include round-border(#6C6)
+	@include round-border(#8B8)
 #flash_notice
 	@include flashbox
+	color: grey
 	background-color: #CFC
 	@include round-border(#6C6)
 #flash_error

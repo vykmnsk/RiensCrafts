@@ -1,19 +1,14 @@
-= render "sidebar"
+#tabs
+	= render 'tabs_groups'
 
-#content
-	#menu_tree
-		%ul
-			- @groups.each do |grp|
-				%li.branch
-					%h3
-						- if @group == grp
-							= grp.name
-						- else
-							= link_to grp.name, groupitems_path(:group_id => grp.id) 
+	#tab-content.tab-active.framed
 
-	- if @items
-		%div 
+		- if @items
 			- @items.each do |item|
-				- photo = item.photos[0]
-				= link_to image_tag(photo.img.url(:medium), :title => item.name), itemshow_path(:id => item.id)
-			
+				.list_item 
+					- photo = item.photos[0]
+					= link_to image_tag(photo.img.url(:medium), :title => item.name), itemshow_path(:id => item.id)
+					%br
+					= item.name
+
+	= render "tab_labels"

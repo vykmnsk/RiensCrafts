@@ -1,9 +1,0 @@
-#menu_tree
-	%ul
-		- @groups.each do |grp|
-			%li.branch
-				%h3
-					- if @group == grp
-						= grp.name
-					- else
-						= link_to grp.name, groupitems_path(:group_id => grp.id) 

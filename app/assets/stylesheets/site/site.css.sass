@@ -1,0 +1,208 @@
+//$back_color: #29264D
+$back_color: #CCC 
+$nav_color: #685BB5
+$main_color: #9E9EDE
+//$text_color: #eedddd
+$text_color: grey
+//$border_color: #99a
+$border_color: white
+
+@mixin round-border($color, $width, $radius)
+	border: solid $width $color
+	border-radius: $radius
+	-moz-border-radius: $radius
+	-webkit-border-radius: $radius
+
+html, body, div, ul 
+	margin: 0
+	padding: 0
+
+body
+	color: $text_color
+	font: normal 14px/20px Verdana, sans-serif
+	background: grey
+	background: url('logo.jpg') no-repeat scroll left top transparent !important
+
+h1
+	margin: 6px 0 10px 0
+	font-size: 20px
+	font-weight: bold
+	font-family: Arial
+	span
+		font-size: 50%
+		letter-spacing: -0.05em
+
+hr
+	border: none
+	height: 1px 
+	line-height: 1px
+	background: #E5E5E5
+	margin-bottom: 20px
+	padding: 0
+
+p
+	margin: 0
+	padding: 7px 0
+
+a:hover
+	color: $nav_color
+a
+	color: #494962
+	text-decoration: none
+	white-space: nowrap
+	outline: none
+	img
+		@include round-border(#aaa, 1px, 4px)
+		padding: 3px
+		margin: 0
+		vertical-align: top
+		.last
+			margin-right: 0	
+
+
+nav a
+	font-size: 0.8em
+
+ul
+	list-style-type: none
+
+
+.clearfix
+	display: block
+	margin: 0
+	padding: 0
+
+.framed
+	border: solid 2px white
+
+.framed_test
+	border: solid 1px red
+
+
+
+/* ~~~~~~~~~~~~~ end of COMMON ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+	
+#wrapper
+	width: 985px
+	margin: 0 auto
+	padding: 10px
+	//@include round-border($border_color, 4px)
+
+	header
+		min-height: 40px
+
+		#logo-float
+			background: url(logo-top.jpg) no-repeat scroll 0 0 transparent
+			float: left
+			display: block
+			height: 60px
+			width: 400px
+			text-indent: -9999px
+			z-index: 3
+
+		#contact-float
+			float: right
+
+	footer
+		width: 860px
+		vertical-align: baseline
+		margin: 0 auto
+		padding-top: 10px
+
+	#content
+		min-height: 560px
+		vertical-align: top
+		margin: 0 auto
+		position: relative
+		z-index: 2
+
+		#tabs
+			margin-top: 20px
+			overflow: hidden
+
+			.tab-inactive
+				background: none repeat scroll 0 0 rgba(255, 255, 255, 0.4)
+
+			.tab-active
+				background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8)
+
+			#tabs-groups
+				height: 71px
+
+				.tab-wrap
+					margin-left: 10px
+					float: right
+
+					.tab-link
+						font-size: 1.2em
+						text-align: center
+						width: 100px
+						padding: 6px
+						@include round-border($border_color, 2px, 12px)
+
+					.tab-conn-vert
+						width: 0px
+						border: dotted 2px white
+						height: 26px
+						margin-left: 52px
+						margin-top: 2px
+						margin-bottom: 2px
+
+			#tab-content
+				float: right
+				width: 760px
+				padding: 20px
+				min-height: 200px
+				@include round-border($border_color, 2px, 12px)
+
+				.list_item
+					float: left
+					margin: 6px
+					padding: 0px
+					text-align: center
+
+
+			#tab-side-wrap
+				margin-right: 0px
+				float: right
+
+				.tab-conn-horiz
+					float: right
+					width: 20px
+					border: dotted 2px white
+					height: 0px
+					margin-top: 40px
+					margin-left: 2px
+					margin-right: 2px
+
+				#tab-side
+					float: right
+					width: 100px
+					padding: 24px
+					@include round-border($border_color, 2px, 12px)
+
+		#menu_tree
+			font-size: 1em
+			text-align: center
+			.branch
+				float: left
+				width: 200px
+				display: block   
+				margin-right: 10px
+				h3
+					margin: 26px 0 4px 0
+					background: $nav_color
+					@include round-border($border_color, 2px, 4px)
+					padding-top: 10px
+					padding-bottom: 10px
+
+
+
+.unused
+	@include round-border($main_color, 2px, 20px) 
+	-moz-box-shadow: 0px 0px 10px black
+	-webkit-box-shadow: 0px 1px 1px black
+	-moz-box-shadow: 0px 0px 10px $border_color
+	-webkit-box-shadow: 0px 0px 10px $border_color
+	z-index: 2
+

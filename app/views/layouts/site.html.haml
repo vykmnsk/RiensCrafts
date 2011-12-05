@@ -5,27 +5,27 @@
     %meta{:charset => "utf-8"}
     %meta{"http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1"}
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
-    = stylesheet_link_tag :admin
+    = stylesheet_link_tag :site
     = javascript_include_tag :application
     = javascript_include_tag params[:controller]
     = csrf_meta_tags
 
   %body{:class => params[:controller]}
-    #wrapper
-      %header
-        #nav
-          / = render 'devise/menu/registration_items'
-          = link_to 'Website', root_path
-          |
-          = render 'devise/menu/login_items'
-          / = render 'site/menu'
-        
-        - flash.each do |name, msg|
-          = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
 
-      #main{:role => "main"}
+    #wrapper
+
+      %header
+        = link_to 'Home', root_path, :id => 'logo-float'
+        #contact-float
+          Email: RiensCrafts@gmail.com
+
+      #content{:role => "main"}
         = yield
 
       %footer
         %p
-          = debug(params) if Rails.env.development?
+        - if Rails.env.development?
+          = debug(params)
+        - else
+          Email: RiensCrafts@gmail.com
+
