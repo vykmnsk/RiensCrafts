@@ -1,24 +1,41 @@
-//$back_color: #29264D
-$back_color: #CCC 
-$nav_color: #685BB5
-$main_color: #9E9EDE
-//$text_color: #eedddd
-$text_color: grey
-//$border_color: #99a
-$border_color: white
+//$color_bg: #29264D
+$color_bg: #CCC 
+$color_text: #555
+$color_text_active: #685BB5
+$color_link: #494962
+// $color_text_active: #685BB5
+$color_text_active: lighten(saturate($color_link, 30%), 22%)
+$color_text_lite: #9E9EDE
+//$color_text: #eedddd
+//$color_tab_border: #99a
+$color_tab_border: white
 
-@mixin round-border($color, $width, $radius)
+@mixin round-border($color: gray, $width: 1px, $radius: 4px)
 	border: solid $width $color
 	border-radius: $radius
 	-moz-border-radius: $radius
 	-webkit-border-radius: $radius
+	-khtml-border-radius: $radius
+	-o-border-radius: $radius
+
+@mixin opacity($percent)
+	filter: alpha(opacity=#{percent})
+	opacity: $percent * 0.01
+
+@mixin bg_opacity($percent)
+	background: #262626 no-repeat 100%
+	background-color: #E7EADE
+	-moz-opacity: 0.8
+	background: rgba(255, 255, 255, $percent * 0.01)
+
+	
 
 html, body, div, ul 
 	margin: 0
 	padding: 0
 
 body
-	color: $text_color
+	color: $color_text
 	font: normal 14px/20px Verdana, sans-serif
 	background: grey
 	background: url('logo.jpg') no-repeat scroll left top transparent !important
@@ -45,9 +62,9 @@ p
 	padding: 7px 0
 
 a:hover
-	color: $nav_color
+	color: lighten(saturate($color_link, 10%), 20%)
 a
-	color: #494962
+	color: $color_link
 	text-decoration: none
 	white-space: nowrap
 	outline: none
@@ -86,7 +103,7 @@ ul
 	width: 985px
 	margin: 0 auto
 	padding: 10px
-	//@include round-border($border_color, 4px)
+	//@include round-border($color_tab_border, 4px)
 
 	header
 		min-height: 40px
@@ -120,11 +137,12 @@ ul
 			margin-top: 20px
 			overflow: hidden
 
+
 			.tab-inactive
-				background: none repeat scroll 0 0 rgba(255, 255, 255, 0.4)
+				@include bg_opacity(40)
 
 			.tab-active
-				background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8)
+				@include bg_opacity(80)
 
 			#tabs-groups
 				height: 71px
@@ -133,27 +151,31 @@ ul
 					margin-left: 10px
 					float: right
 
-					.tab-link
-						font-size: 1.2em
-						text-align: center
-						width: 100px
-						padding: 6px
-						@include round-border($border_color, 2px, 12px)
+				.tab-group
+					font-size: 1.2em
+					text-align: center
+					width: 100px
+					padding: 6px
+					@include round-border($color_tab_border, 2px, 12px)
 
-					.tab-conn-vert
-						width: 0px
-						border: dotted 2px white
-						height: 26px
-						margin-left: 52px
-						margin-top: 2px
-						margin-bottom: 2px
+					&.tab-active
+						color: $color_text_active
+
+
+				.tab-conn-vert
+					width: 0px
+					border: dotted 2px white
+					height: 26px
+					margin-left: 52px
+					margin-top: 2px
+					margin-bottom: 2px
 
 			#tab-content
 				float: right
 				width: 760px
 				padding: 20px
 				min-height: 200px
-				@include round-border($border_color, 2px, 12px)
+				@include round-border($color_tab_border, 2px, 12px)
 
 				.list_item
 					float: left
@@ -166,20 +188,20 @@ ul
 				margin-right: 0px
 				float: right
 
-				.tab-conn-horiz
-					float: right
-					width: 20px
-					border: dotted 2px white
-					height: 0px
-					margin-top: 40px
-					margin-left: 2px
-					margin-right: 2px
+			.tab-conn-horiz
+				float: right
+				width: 20px
+				border: dotted 2px white
+				height: 0px
+				margin-top: 40px
+				margin-left: 2px
+				margin-right: 2px
 
-				#tab-side
-					float: right
-					width: 100px
-					padding: 24px
-					@include round-border($border_color, 2px, 12px)
+			.tab-labels
+				float: right
+				width: 100px
+				padding: 24px
+				@include round-border($color_tab_border, 2px, 12px)
 
 		#menu_tree
 			font-size: 1em
@@ -189,20 +211,14 @@ ul
 				width: 200px
 				display: block   
 				margin-right: 10px
-				h3
-					margin: 26px 0 4px 0
-					background: $nav_color
-					@include round-border($border_color, 2px, 4px)
-					padding-top: 10px
-					padding-bottom: 10px
 
 
 
 .unused
-	@include round-border($main_color, 2px, 20px) 
+	@include round-border($color_text_lite, 2px, 20px) 
 	-moz-box-shadow: 0px 0px 10px black
 	-webkit-box-shadow: 0px 1px 1px black
-	-moz-box-shadow: 0px 0px 10px $border_color
-	-webkit-box-shadow: 0px 0px 10px $border_color
+	-moz-box-shadow: 0px 0px 10px $color_tab_border
+	-webkit-box-shadow: 0px 0px 10px $color_tab_border
 	z-index: 2
 

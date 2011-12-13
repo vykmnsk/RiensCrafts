@@ -11,13 +11,16 @@
 
 
 #menu_tree
-	%ul
-		- @groups.each do |grp|
-			%li.branch
-				%h3
-					= link_to grp.name, groupitems_path(:group_id => grp.id) 
+	#tabs
+		#tabs-groups
 
-				%ul
-					- grp.labels.each do |lbl|
-						%li
-							= link_to lbl.name, labelitems_path(:label_id => lbl.id) 
+			%ul
+				- @groups.each do |grp|
+					%li.branch
+						.tab-group.tab-inactive
+							= link_to grp.name, groupitems_path(:group_id => grp.id) 
+
+						%ul
+							- grp.labels.each do |lbl|
+								%li
+									= link_to lbl.name, labelitems_path(:label_id => lbl.id) 

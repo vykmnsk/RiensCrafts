@@ -2,12 +2,12 @@
 	- @groups.each do |grp|
 		.tab-wrap
 			- if @group == grp
-				.tab-link.tab-active.framed
+				.tab-group.tab-active.framed
 					= grp.name
 					= image_tag('button.png', :height => '18px', :width => '18px')
 				.tab-conn-vert
 
 			- else
-				.tab-link.tab-inactive.framed
+				.tab-group.tab-inactive.framed
 					= link_to grp.name, groupitems_path(:group_id => grp.id)
 			

@@ -1,15 +1,18 @@
-= render "sidebar"
+#tabs
+	= render 'tabs_groups'
 
-#content
-	= render 'menu_groups'
+	#tab-content.tab-active.framed
+		%p
+			= @item.name
+		%p
+			= @item.descr
+		%p
+			Price: $#{@item.price}
 
-	%p
-		= @item.name
-	%p
-		= @item.descr
-	%p
-		Price: $#{@item.price}
+		%div 
+			- @item.photos.each do |photo|
+				= link_to image_tag(photo.img.url(:medium), :title => @item.name), photo.img.url, :rel => 'gallery'
 
-	%div 
-		- @item.photos.each do |photo|
-			= link_to image_tag(photo.img.url(:medium), :title => @item.name), photo.img.url, :rel => 'gallery'
+	= render "tab_labels"
+
+
