@@ -12,23 +12,22 @@ $color_tab_border: white
 
 @mixin round-border($color: gray, $width: 1px, $radius: 4px)
 	border: solid $width $color
-	border-radius: $radius
-	-moz-border-radius: $radius
-	-webkit-border-radius: $radius
-	-khtml-border-radius: $radius
-	-o-border-radius: $radius
+	border-radius: $radius $radius
+	-moz-border-radius: $radius $radius
+	-webkit-border-radius: $radius $radius
+	-khtml-border-radius: $radius $radius
+	-o-border-radius: $radius $radius
 
 @mixin opacity($percent)
+	background-color: #ddd
 	filter: alpha(opacity=#{percent})
 	opacity: $percent * 0.01
+	// background: none transparent scroll repeat 0% 0%
 
 @mixin bg_opacity($percent)
-	background: #262626 no-repeat 100%
-	background-color: #E7EADE
-	-moz-opacity: 0.8
+	// background: #262626 no-repeat 100%
+	// background-color: #E7EADE
 	background: rgba(255, 255, 255, $percent * 0.01)
-
-	
 
 html, body, div, ul 
 	margin: 0
@@ -139,10 +138,12 @@ ul
 
 
 			.tab-inactive
-				@include bg_opacity(40)
+				@include opacity(50)
+			.tab-inactive:hover
+				@include opacity(84)	
 
 			.tab-active
-				@include bg_opacity(80)
+				@include opacity(90)
 
 			#tabs-groups
 				height: 71px
