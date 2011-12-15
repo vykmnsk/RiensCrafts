@@ -17,10 +17,11 @@ $color_tab_border: white
 	-webkit-border-radius: $radius $radius
 	-khtml-border-radius: $radius $radius
 	-o-border-radius: $radius $radius
+	behavior: url(ie-css3.htc)
 
 @mixin opacity($percent)
 	background-color: #ddd
-	filter: alpha(opacity=#{percent})
+	filter: alpha(opacity=$percent)
 	opacity: $percent * 0.01
 	// background: none transparent scroll repeat 0% 0%
 
