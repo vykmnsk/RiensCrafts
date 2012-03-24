@@ -13,8 +13,11 @@
   %body{:class => params[:controller]}
     #wrapper
       %header
-        #nav
+        %nav
           / = render 'devise/menu/registration_items'
+          - if user_signed_in?
+            = link_to('Admin Home', '/admin/vhod')
+            |
           = link_to 'Website', root_path
           |
           = render 'devise/menu/login_items'
