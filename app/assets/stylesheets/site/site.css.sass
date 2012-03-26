@@ -164,6 +164,9 @@ ul
 					&.tab-active
 						color: $color_text_active
 
+				.group-labels
+					font-size: 0.8em !important
+
 
 				.tab-conn-vert
 					width: 0px
@@ -206,22 +209,28 @@ ul
 				padding: 24px
 				@include round-border($color_tab_border, 2px, 12px)
 
-		#menu_tree
-			font-size: 1em
-			text-align: center
-			.branch
-				float: left
-				width: 200px
-				display: block   
-				margin-right: 10px
+		#carousel_wrap
+			position: absolute
+			top: 480px
 
 
 
-.unused
+#unused
 	@include round-border($color_text_lite, 2px, 20px) 
 	-moz-box-shadow: 0px 0px 10px black
 	-webkit-box-shadow: 0px 1px 1px black
 	-moz-box-shadow: 0px 0px 10px $color_tab_border
 	-webkit-box-shadow: 0px 0px 10px $color_tab_border
 	z-index: 2
+
+	#menu_tree
+		font-size: 1em
+		text-align: center
+		.branch
+			float: left
+			width: 200px
+			display: block   
+			margin-right: 10px
+
+
 

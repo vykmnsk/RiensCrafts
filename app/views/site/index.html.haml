@@ -1,26 +1,33 @@
+#tabs
+	#tabs-groups
+		- @groups.each do |grp|
+			.tab-wrap
+				.tab-group.tab-inactive
+					= link_to grp.name, groupitems_path(:group_id => grp.id)
+				.tab-conn-vert
+				.tab-group.tab-inactive
+					%ul
+						- grp.labels.each do |lbl|
+							%li.group-labels
+								= link_to lbl.name, labelitems_path(:label_id => lbl.id) 
+
+
 #carousel_wrap
 	%ul#banners.jcarousel-skin-banners
 		%li
-			=image_tag("banner1.JPG", :width => "190px", :height => "190px")
+			=image_tag("banner1.jpg", :width => "120px", :height => "120px")
 		%li
-			=image_tag("banner2.JPG", :width => "190px", :height => "190px")
+			=image_tag("banner2.jpg", :width => "120px", :height => "120px")
 		%li
-			=image_tag("banner3.JPG", :width => "190px", :height => "190px")
+			=image_tag("banner3.jpg", :width => "120px", :height => "120px")
 		%li
-			=image_tag("banner4.JPG", :width => "190px", :height => "190px")
+			=image_tag("banner4.jpg", :width => "120px", :height => "120px")
+		%li
+			=image_tag("banner5.jpg", :width => "120px", :height => "120px")
+		%li
+			=image_tag("banner6.jpg", :width => "120px", :height => "120px")
+		%li
+			=image_tag("banner7.jpg", :width => "120px", :height => "120px")
+		%li
+			=image_tag("banner8.jpg", :width => "120px", :height => "120px")
 
-
-#menu_tree
-	#tabs
-		#tabs-groups
-
-			%ul
-				- @groups.each do |grp|
-					%li.branch
-						.tab-group.tab-inactive
-							= link_to grp.name, groupitems_path(:group_id => grp.id) 
-
-						%ul
-							- grp.labels.each do |lbl|
-								%li
-									= link_to lbl.name, labelitems_path(:label_id => lbl.id) 
