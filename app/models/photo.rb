@@ -1,5 +1,18 @@
 class Photo < ActiveRecord::Base
-	has_attached_file :img, :styles => { :medium => "200x200>", :thumb => "50x50" } #:thumb => "100x100>" 
+
+	if Rails.env.production?
+		has_attached_file :img, 
+			:styles => { :medium => "200x200>", :thumb => "50x50" },
+		    :storage => :s3,
+		    :bucket => ENV['S3_BUCKET_NAME'],
+		    :s3_credentials => {
+		    	:access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+		    	:secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+		    }
+	else 
+		has_attached_file :img, 
+			:styles => { :medium => "200x200>", :thumb => "50x50" } #:thumb => "100x100>" 
+	end  
 
 	belongs_to :item
 end
