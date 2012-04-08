@@ -2,7 +2,7 @@ class Photo < ActiveRecord::Base
 
 	if Rails.env.production?
 		has_attached_file :img, 
-			:styles => { :medium => "200x200>", :thumb => "50x50" },
+			:styles => { :medium => "200x200>", :thumb => "120x120" },
 		    :storage => :s3,
 		    :bucket => ENV['S3_BUCKET_NAME'],
 		    :s3_credentials => {
@@ -11,7 +11,7 @@ class Photo < ActiveRecord::Base
 		    }
 	else 
 		has_attached_file :img, 
-			:styles => { :medium => "200x200>", :thumb => "50x50" } #:thumb => "100x100>" 
+			:styles => { :medium => "200x200>", :thumb => "120x120" }
 	end  
 
 	belongs_to :item
