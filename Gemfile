@@ -24,6 +24,7 @@ gem "heroku"
 gem "thin"
 #gem "rmagick"
 gem "paperclip", "~> 2.3"
+gem "aws-s3"
 gem "pg"
 gem "sqlite3", :group => :test
 # group :production do
